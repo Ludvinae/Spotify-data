@@ -1,4 +1,7 @@
 
+churnByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
+subByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
+attritionRate = {}
 
 def churnTotal(data):
     churnTotal = 0
@@ -8,10 +11,6 @@ def churnTotal(data):
     return churnTotal / len(data)
 
 def churnByType(data):
-    churnByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
-    subByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
-    attritionRate = {}
-
     for user in data:
         match user["subscription_type"]:
             case "Free":
