@@ -30,3 +30,12 @@ def hasHeardAds(user):
     if user["ads_listened_per_week"] > 20:
         return True
     return False
+
+def isRiskUser(user):
+    if isSkipping(user) and hasLowListeningTime(user):
+        if not hasFreeSub(user):
+            return True
+        else:
+            if hasNoOfflineListening(user) and hasHeardAds(user):
+                return True
+    return False
