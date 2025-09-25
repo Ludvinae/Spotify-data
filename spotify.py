@@ -18,6 +18,5 @@ def read_spotify_data(file_path, debug=True):
 dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
 
 
-
+# Attrition is the rate of "is_churned" divided by the total of users
 displayAttrition(dataset)
-

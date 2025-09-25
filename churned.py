@@ -1,14 +1,12 @@
+# Store info on subs in dictionnaries
 
 churnByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
 subByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
 
-
-def churnTotal(data):
-    churnTotal = 0
-    for user in data:
-        if user["is_churned"] == "1":
-            churnTotal += 1
-    return round(churnTotal / len(data) * 100, 2)
+def updateDictionnaries(subType, user):
+    subByType[subType] += 1
+    if user["is_churned"] == "1":
+        churnByType[subType] += 1
 
 def getChurnByType(data):
     for user in data:
@@ -22,10 +20,12 @@ def getChurnByType(data):
             case "Student":
                 updateDictionnaries("Student", user)
 
-def updateDictionnaries(subType, user):
-    subByType[subType] += 1
-    if user["is_churned"] == "1":
-        churnByType[subType] += 1
+def churnTotal(data):
+    churnTotal = 0
+    for user in data:
+        if user["is_churned"] == "1":
+            churnTotal += 1
+    return round(churnTotal / len(data) * 100, 2)
 
 def attritionRate(subType):
     return round((churnByType[subType] / subByType[subType]) * 100, 2)
