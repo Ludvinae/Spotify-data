@@ -27,4 +27,3 @@ riskUsers = []
 for user in dataset:
     if isRiskUser(user):
         riskUsers.append(user)
-        print(user)
