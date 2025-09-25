@@ -20,5 +20,5 @@ dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
 
 
 print(str(churned.churnTotal(dataset) * 100) + " %")
-print(churned.churnByType(dataset))
+print(churned.getChurnByType(dataset))
 
