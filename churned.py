@@ -1,7 +1,7 @@
 
 churnByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
 subByType = {"Free": 0, "Premium": 0, "Family": 0, "Student": 0}
-attritionRate = {}
+
 
 def churnTotal(data):
     churnTotal = 0
@@ -21,15 +21,11 @@ def getChurnByType(data):
                 updateDictionnaries("Family", user)
             case "Student":
                 updateDictionnaries("Student", user)
-        
-    attritionRate["Free"] = churnByType["Free"] / subByType["Free"]
-    attritionRate["Premium"] = churnByType["Premium"] / subByType["Premium"]
-    attritionRate["Family"] = churnByType["Family"] / subByType["Family"]
-    attritionRate["Student"] = churnByType["Student"] / subByType["Student"]
-
-    return attritionRate
 
 def updateDictionnaries(subType, user):
     subByType[subType] += 1
     if user["is_churned"] == "1":
         churnByType[subType] += 1
+
+def attritionRate(subType):
+    return round((churnByType[subType] / subByType[subType]) * 100, 2)
