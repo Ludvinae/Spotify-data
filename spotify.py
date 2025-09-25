@@ -1,5 +1,5 @@
 import csv
-import churned
+from churned import displayAttrition
 
 def read_spotify_data(file_path, debug=True):
     spotify_data = []
@@ -19,6 +19,5 @@ dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
 
 
 
-print(str(churned.churnTotal(dataset) * 100) + " %")
-print(churned.getChurnByType(dataset))
+displayAttrition(dataset)
 

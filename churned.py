@@ -8,7 +8,7 @@ def churnTotal(data):
     for user in data:
         if user["is_churned"] == "1":
             churnTotal += 1
-    return churnTotal / len(data)
+    return round(churnTotal / len(data) * 100, 2)
 
 def getChurnByType(data):
     for user in data:
@@ -29,3 +29,12 @@ def updateDictionnaries(subType, user):
 
 def attritionRate(subType):
     return round((churnByType[subType] / subByType[subType]) * 100, 2)
+
+def displayAttrition(data):
+    getChurnByType(data)
+    print(f"Total Attrition rate: {churnTotal(data)} %")
+    print(f"Free subs Attrition rate: {attritionRate('Free')} %")
+    print(f"Premium subs Attrition rate: {attritionRate('Premium')} %")
+    print(f"Family subs Attrition rate: {attritionRate('Family')} %")
+    print(f"Student subs Attrition rate: {attritionRate('Student')} %")
+
