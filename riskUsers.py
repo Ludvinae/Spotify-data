@@ -15,3 +15,18 @@ def hasLowListeningTime(user):
     if user["listening_time"] < 100:
         return True
     return False
+
+def hasFreeSub(user):
+    if user["subscription_type"] == "Free":
+        return True
+    return False
+
+def hasNoOfflineListening(user):
+    if user["offline_listening"] == 0:
+        return True
+    return False
+
+def hasHeardAds(user):
+    if user["ads_listened_per_week"] > 20:
+        return True
+    return False
