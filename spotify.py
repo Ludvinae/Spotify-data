@@ -15,3 +15,12 @@ def read_spotify_data(file_path, debug=True):
     return spotify_data
 
 dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
+
+def churnTotal():
+    churnTotal = 0
+    for user in dataset:
+        if user["is_churned"] == "1":
+            churnTotal += 1
+    return churnTotal / len(dataset)
+
+print(str(churnTotal() * 100) + " %")
