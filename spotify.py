@@ -29,8 +29,4 @@ for user in dataset:
     if isRiskUser(user):
         riskUsers.append(user)
 
-
-for user in dataset:
-    if revenus.isNotChurned:
-        revenus.countryDict(user)
-print(revenus.countries)
+revenus.buildCountriesDict(dataset)
