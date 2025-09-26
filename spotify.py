@@ -2,6 +2,7 @@ import csv
 from churned import displayAttrition
 from riskUsers import isRiskUser
 from revenus import getRevenusByCountry
+from powerUsers import getPowerUsers
 
 def read_spotify_data(file_path, debug=True):
     spotify_data = []
@@ -30,3 +31,6 @@ for user in dataset:
         riskUsers.append(user)
 
 getRevenusByCountry(dataset)
+
+powerUsers = getPowerUsers(dataset)
+print(f"Power Users count : {len(powerUsers)}")
