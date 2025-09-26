@@ -1,6 +1,7 @@
 import csv
 from churned import displayAttrition
 from riskUsers import isRiskUser
+import revenus
 
 def read_spotify_data(file_path, debug=True):
     spotify_data = []
@@ -27,3 +28,9 @@ riskUsers = []
 for user in dataset:
     if isRiskUser(user):
         riskUsers.append(user)
+
+
+for user in dataset:
+    if revenus.isNotChurned:
+        revenus.countryDict(user)
+print(revenus.countries)
