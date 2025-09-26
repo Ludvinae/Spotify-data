@@ -29,9 +29,15 @@ def subType(user):
 countries = {}
 
 def newCountryCode(user):
-    countries[user["country"]] = [0, 0, 0, 0]
+    country = user["country"]
+    countries[country] = [0, 0, 0, 0]
 
 def countryDict(user):
     if user["country"] not in countries:
         newCountryCode(user)
     countries[user["country"]] = subType(user)
+
+def buildCountriesDict(data):
+    for user in data:
+        if isNotChurned(user):
+            countryDict(user)
