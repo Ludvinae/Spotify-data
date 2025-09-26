@@ -13,20 +13,18 @@ def isNotChurned(user):
         return True
     return False
 
-subTypeCount = [] * 4
+countries = {}
 
-def subType(user):
+def subType(user, countryCode):
     match user["subscription_type"]:
         case "Free":
-            subTypeCount[0] += 1
+            countries[countryCode][0] += 1
         case "Premium":
-            subTypeCount[1] += 1
+            countries[countryCode][1] += 1
         case "Family":
-            subTypeCount[2] += 1
+            countries[countryCode][2] += 1
         case "Student":
-            subTypeCount[3] += 1
-
-countries = {}
+            countries[countryCode][3] += 1
 
 def newCountryCode(user):
     country = user["country"]
@@ -35,9 +33,22 @@ def newCountryCode(user):
 def countryDict(user):
     if user["country"] not in countries:
         newCountryCode(user)
-    countries[user["country"]] = subType(user)
+    subType(user, user["country"])
 
 def buildCountriesDict(data):
     for user in data:
         if isNotChurned(user):
             countryDict(user)
+
+def displayCountryRevenus(country):
+    print("Free plan: ", prices[0] * float(countries[country][0]), " €", end="| ")
+
+
+prices = [0.00, 9.99, 14.99, 4.99]
+
+def getRevenusByCountry(data):
+    buildCountriesDict(data)
+    for country in countries:
+        print(f"Revenues for {country}:")
+        displayCountryRevenus(country)
+       
