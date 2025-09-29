@@ -5,6 +5,7 @@ from revenus import getRevenusByCountry
 from powerUsers import getPowerUsers
 from adsPerSubType import adsPerSub
 from deviceMix import deviceMix
+from ageBracket import ageBracket
 
 def read_spotify_data(file_path, debug=True):
     spotify_data = []
@@ -28,6 +29,7 @@ displayAttrition(dataset)
 
 # Check the dataset for risk users and add them to a list
 riskUsers = []
+riskUsers2 = []
 count = 0
 count2 = 0
 for user in dataset:
@@ -35,11 +37,14 @@ for user in dataset:
         riskUsers.append(user)
         count += 1
     if altRiskUser(user):
-        riskUsers.append(user)
+        riskUsers2.append(user)
         count2 += 1
 
 print(count / len(dataset))
-print(count / len(dataset))
+print(count2 / len(dataset))
+print(len(riskUsers))
+print(len(riskUsers2))
+
 getRevenusByCountry(dataset)
 
 powerUsers = getPowerUsers(dataset)
@@ -48,3 +53,5 @@ print(f"Power Users count : {len(powerUsers)}")
 adsPerSub(dataset)
 
 deviceMix(dataset)
+
+ageBracket(dataset)
