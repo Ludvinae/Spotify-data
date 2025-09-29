@@ -6,6 +6,8 @@ from powerUsers import getPowerUsers
 from adsPerSubType import adsPerSub
 from deviceMix import deviceMix
 from ageBracket import ageBracket
+from histogramme import histogramme
+
 
 def read_spotify_data(file_path, debug=True):
     spotify_data = []
@@ -22,22 +24,6 @@ def read_spotify_data(file_path, debug=True):
     return spotify_data
 
 dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -77,7 +63,7 @@ while True:
         case "7":
             ageBracket(dataset)
         case "8":
-            pass
+            histogramme(dataset)
         case "9":
             pass
         case "10":
