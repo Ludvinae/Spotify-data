@@ -28,15 +28,17 @@ displayAttrition(dataset)
 
 # Check the dataset for risk users and add them to a list
 riskUsers = []
-count =0
+count = 0
+count2 = 0
 for user in dataset:
-    #if isRiskUser(user):
-     #   riskUsers.append(user)
-      #  count += 1
-    if altRiskUser(user):
+    if isRiskUser(user):
         riskUsers.append(user)
         count += 1
+    if altRiskUser(user):
+        riskUsers.append(user)
+        count2 += 1
 
+print(count / len(dataset))
 print(count / len(dataset))
 getRevenusByCountry(dataset)
 
