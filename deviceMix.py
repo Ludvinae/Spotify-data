@@ -30,7 +30,7 @@ def printDeviceMix():
 
         print(f"Device mix for {country}:")
         #print(f"Mobile users: {countries[country]["Mobile"]}; Desktop users: {countries[country]["Desktop"]}; Web users: {countries[country]["Web"]}")
-        print(f"Mobile users: {getpercent(country, "Mobile"):.2f}%; Desktop users: {getpercent(country, "Desktop"):.2f}%; Web users: {getpercent(country, "Web"):.2f}%")
+        print(f"Mobile users: {getpercent(country, 'Mobile'):.2f}%; Desktop users: {getpercent(country, 'Desktop'):.2f}%; Web users: {getpercent(country, 'Web'):.2f}%")
 
 
 def getpercent(country, device):
