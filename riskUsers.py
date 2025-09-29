@@ -39,3 +39,12 @@ def isRiskUser(user):
             if hasNoOfflineListening(user) and hasHeardAds(user):
                 return True
     return False
+
+def altRiskUser(user):
+    if hasFreeSub(user):
+        if hasNoOfflineListening(user) and hasHeardAds(user):
+                return True
+    else:
+        if isSkipping(user) and hasLowListeningTime(user):
+            return True
+    return False
