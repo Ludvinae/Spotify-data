@@ -1,6 +1,6 @@
 subscriptions = {"Free": {"adsTotal": 0, "userTotal": 0}, "Premium": {"adsTotal": 0, "userTotal": 0}, "Family": {"adsTotal": 0, "userTotal": 0}, "Student": {"adsTotal": 0, "userTotal": 0}}
 
-def adsPerSubs(data):
+def adsPerSub(data):
     for user in data:
         addToDict(user)
     print(f"Ads listened by Free users: {averageAds("Free")}")
@@ -12,7 +12,7 @@ def adsPerSubs(data):
 
 def addToDict(user):
     subType = user["subscription_type"]
-    subscriptions[subType]["adsTotal"] += user["ads_listened_per_week"]
+    subscriptions[subType]["adsTotal"] += int(user["ads_listened_per_week"])
     subscriptions[subType]["userTotal"] += 1
 
 
