@@ -11,16 +11,16 @@ def getPowerUsers(data):
     return powerUserList
 
 def isPowerUser(user):
-    if hasHighListeningTime and hasHighTrackCount:
+    if hasHighListeningTime(user) and hasHighTrackCount(user):
         return True
     return False
 
 def hasHighListeningTime(user):
-    if user["listening_time"] > 200:
+    if int(user["listening_time"]) > 200:
         return True
     return False
 
 def hasHighTrackCount(user):
-    if user["songs_played_per_day"] > 50:
+    if int(user["songs_played_per_day"]) > 50:
         return True
     return False
