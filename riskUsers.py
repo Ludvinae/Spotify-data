@@ -49,29 +49,35 @@ def altRiskUser(user):
             return True
     return False
 
+def thirdRiskUser(user):
+    if isSkipping(user) and hasLowListeningTime(user):
+        return True
+    if hasFreeSub(user) and hasNoOfflineListening(user) and hasHeardAds(user):
+        return True
 
-def riskUsers(data):
-    while True:
-        choice = input("What version do you want? (1 / 2): ")
-        if choice != "1" and choice != "2":
-            choice = "2"
-        riskUsers = []
-        riskUsers2 = []
-        count = 0
-        count2 = 0
-        for user in data:
-            if isRiskUser(user):
-                riskUsers.append(user)
-                count += 1
-            if altRiskUser(user):
-                riskUsers2.append(user)
-                count2 += 1
-        match choice:
-            case "1":
-                print(f"Percentage of risk users in the sample: {(count / len(data)) * 100} %")
-                print(f"Total count of risk users: {len(riskUsers)}")
-                break
-            case "2":
-                print(f"Percentage of risk users in the sample: {(count2 / len(data)) * 100} %")
-                print(f"Total count of risk users: {len(riskUsers2)}")
-                break
+
+def riskConditions(user, choice):
+    
+    match choice:
+        case "c" | "conservative":
+            return isRiskUser(user)
+        case "m" | "moderate":
+            return altRiskUser(user)
+        case "l" | "large":
+            return thirdRiskUser(user)
+        case _:
+            return altRiskUser(user)
+
+
+def riskUsers(data): 
+    riskUsers = []
+    count = 0
+    choice = input("What version do you want? (Conservative / Moderate / Large): ").lower()
+
+    for user in data:
+        if riskConditions(user, choice):
+            riskUsers.append(user)
+            count += 1
+
+    print(f"Percentage of risk users in the sample: {(count / len(data)) * 100} %")
+    print(f"Total count of risk users: {len(riskUsers)}")
