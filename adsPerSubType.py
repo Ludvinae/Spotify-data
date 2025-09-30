@@ -3,10 +3,7 @@ subscriptions = {"Free": {"adsTotal": 0, "userTotal": 0}, "Premium": {"adsTotal"
 def adsPerSub(data):
     for user in data:
         addToDict(user)
-    print(f"Ads listened by Free users: {averageAds('Free')}")
-    print(f"Ads listened by Premium users: {averageAds('Premium')}")
-    print(f"Ads listened by Family users: {averageAds('Family')}")
-    print(f"Ads listened by Student users: {averageAds('Student')}")
+    print(f"Ads listened by Free users: {averageAds('Free'):.2f}")
 
 
 
