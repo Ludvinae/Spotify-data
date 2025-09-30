@@ -68,10 +68,10 @@ def riskUsers(data):
                 count2 += 1
         match choice:
             case "1":
-                print(count / len(data))
-                print(len(riskUsers))
+                print(f"Percentage of risk users in the sample: {(count / len(data)) * 100} %")
+                print(f"Total count of risk users: {len(riskUsers)}")
                 break
             case "2":
-                print(count2 / len(data))
-                print(len(riskUsers2))
+                print(f"Percentage of risk users in the sample: {(count2 / len(data)) * 100} %")
+                print(f"Total count of risk users: {len(riskUsers2)}")
                 break
