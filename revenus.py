@@ -42,9 +42,10 @@ def buildCountriesDict(data):
 
 def displayCountryRevenus(country):
     #print("Free plan: ", prices[0] * float(countries[country][0]), " €", end="| ")
-    print("Premium plan: ", prices[1] * float(countries[country][1]), " €", end="| ")
-    print("Family plan: ", prices[2] * float(countries[country][2]), " €", end="| ")
-    print("Student plan: ", prices[3] * float(countries[country][3]), " €")
+    print("Premium plan: ", round(prices[1] * float(countries[country][1]), 2), " €", end="| ")
+    print("Family plan: ", round(prices[2] * float(countries[country][2]), 2), " €", end="| ")
+    print("Student plan: ", round(prices[3] * float(countries[country][3]), 2), " €")
+    print("____________________________________________________________________________")
 
 
 prices = [0.00, 9.99, 14.99, 4.99]
