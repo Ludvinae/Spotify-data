@@ -28,15 +28,15 @@ def getDevice(user):
 def printDeviceMix():
     for country in countries:
 
-        print(f"Device mix for {country}: ", end="")
+        print(f"Most used device for {country}: ", end="")
         device = getMax(country)
         match device:
             case "Mobile":
-                print(f"Mobile users: {getpercent(country, 'Mobile'):.2f}%")
+                print(f"Mobile users ({getpercent(country, 'Mobile'):.2f} %)")
             case "Desktop":
-                print(f"Desktop users: {getpercent(country, 'Desktop'):.2f}%")
+                print(f"Desktop users ({getpercent(country, 'Desktop'):.2f} %)")
             case "Web":
-                print(f"Web users: {getpercent(country, 'Web'):.2f}%")
+                print(f"Web users ({getpercent(country, 'Web'):.2f} %)")
             case _:
                 "error"
 
