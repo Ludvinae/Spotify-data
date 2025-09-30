@@ -8,6 +8,7 @@ from deviceMix import deviceMix
 from ageBracket import ageBracket
 from histogramme import histogramme
 import user360
+from uniqueValues import checkUnique
 
 
 def read_spotify_data(file_path, debug=True):
@@ -70,7 +71,7 @@ while True:
             index = input("Please enter the ID of the user you're looking for: ")
             print(user360.userData(index))
         case "10":
-            pass
+            checkUnique(dataset)
         case "q" | "Q":
             break
         case _:
