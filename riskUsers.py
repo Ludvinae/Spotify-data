@@ -48,3 +48,30 @@ def altRiskUser(user):
         if isSkipping(user) and hasLowListeningTime(user):
             return True
     return False
+
+
+def riskUsers(data):
+    while True:
+        choice = input("What version do you want? (1 / 2): ")
+        if choice != "1" and choice != "2":
+            choice = "2"
+        riskUsers = []
+        riskUsers2 = []
+        count = 0
+        count2 = 0
+        for user in data:
+            if isRiskUser(user):
+                riskUsers.append(user)
+                count += 1
+            if altRiskUser(user):
+                riskUsers2.append(user)
+                count2 += 1
+        match choice:
+            case "1":
+                print(count / len(data))
+                print(len(riskUsers))
+                break
+            case "2":
+                print(count2 / len(data))
+                print(len(riskUsers2))
+                break

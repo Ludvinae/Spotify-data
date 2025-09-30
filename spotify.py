@@ -1,6 +1,6 @@
 import csv
 from churned import displayAttrition
-from riskUsers import isRiskUser, altRiskUser
+from riskUsers import riskUsers
 from revenus import getRevenusByCountry
 from powerUsers import getPowerUsers
 from adsPerSubType import adsPerSub
@@ -36,23 +36,7 @@ while True:
             # Attrition is the rate of "is_churned" divided by the total of users
             displayAttrition(dataset)
         case "2":
-            # Check the dataset for risk users and add them to a list
-            riskUsers = []
-            riskUsers2 = []
-            count = 0
-            count2 = 0
-            for user in dataset:
-                if isRiskUser(user):
-                    riskUsers.append(user)
-                    count += 1
-                if altRiskUser(user):
-                    riskUsers2.append(user)
-                    count2 += 1
-
-            print(count / len(dataset))
-            print(count2 / len(dataset))
-            print(len(riskUsers))
-            print(len(riskUsers2))
+            riskUsers(dataset)
         case "3":
             getRevenusByCountry(dataset)
         case "4":
