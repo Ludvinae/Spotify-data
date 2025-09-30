@@ -7,7 +7,7 @@ from adsPerSubType import adsPerSub
 from deviceMix import deviceMix
 from ageBracket import ageBracket
 from histogramme import histogramme
-import user360
+from user360 import displayUser
 from uniqueValues import checkUnique
 
 
@@ -51,9 +51,7 @@ while True:
         case "8":
             histogramme(dataset)
         case "9":
-            user360.createIndex(dataset)
-            index = input("Please enter the ID of the user you're looking for: ")
-            print(user360.userData(index))
+            displayUser(dataset)
         case "10":
             checkUnique(dataset)
         case "q" | "Q":
