@@ -26,4 +26,5 @@ def displayUser(data):
     print(f"Has {user['subscription_type']} subscription, {user['listening_time']} minutes of listening time and {user['songs_played_per_day']} songs played per day")
     print(f"Skip rate of {(float(user['skip_rate'])) * 100} %, use a {user['device_type']}, listen to {user['ads_listened_per_week']} ads per week")
     print(f"Has listened to {user['offline_listening']} minutes offline, and is {churn}.")
+    print("__________________________________________________________________________________")
     
