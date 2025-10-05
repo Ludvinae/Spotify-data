@@ -38,3 +38,7 @@ def displayAttrition(data):
     print(f"Family subs Attrition rate: {attritionRate('Family')} %")
     print(f"Student subs Attrition rate: {attritionRate('Student')} %")
 
+def getAttrition(data):
+    getChurnByType(data)
+    return "Total attrition: " + str(churnTotal(data)) + " %\nFree subs attrition: " + str(attritionRate("Free")) + " %\nPremium subs attrition: " + str(attritionRate("Premium")) + " %\nFamily subs attrition: " + str(attritionRate("Family")) + " %\nStudent subs attrition: " + str(attritionRate("Student")) + " %"
+

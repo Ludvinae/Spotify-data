@@ -61,7 +61,7 @@ options = ["Churn", "Risk users", "Revenue", "Power users",
            "Ads average", "Device mix", "Age brackets", 
            "Skip rate", "Specific user","Unique values"]
 functions = StringVar()
-functions.set(options[0])
+#functions.set(options[0])
 
 
 # Creating objects
