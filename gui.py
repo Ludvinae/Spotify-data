@@ -30,7 +30,7 @@ def show():
             display = getFunction("Specific user")
         case "Unique values":
             display = getFunction("Unique values")
-    result = Label(root, text=display).pack()
+    result.config(text=display)
 
 def jobCard(option):
     match option:
@@ -54,8 +54,7 @@ def jobCard(option):
             job = "Display the full data on a user selected with their ID"
         case "Unique values":
             job = "Show individual countries, devices and subscription types"
-    card = Label(root, text=job)
-    card.pack()
+    card.config(text=job)
 
 options = ["Churn", "Risk users", "Revenue", "Power users", 
            "Ads average", "Device mix", "Age brackets", 
@@ -68,19 +67,20 @@ functions = StringVar()
 myTitle = Label(root, text="Spotify data analysis")
 myLabel = Label(root, text="What function do you want to run?")
 dropDown = OptionMenu(root, functions, *options, command=jobCard)
+card = Label(root, text="")
 #dropDown = ttk.Combobox(root, values=options)
 #dropDown.current(0)
 #dropDown.bind(functions, jobCard)
 
 myButton = Button(root, text="Run", command=show)
-
+result = Label(root, text="")
 
 # Displaying objects
 myTitle.pack()
 myLabel.pack()
 dropDown.pack()
-
+card.pack()
 myButton.pack()
-
+result.pack()
 
 root.mainloop()
