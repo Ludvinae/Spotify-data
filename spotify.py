@@ -27,36 +27,61 @@ def read_spotify_data(file_path, debug=True):
 
 dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
 
-
-
-while True:
-    choice = input("Quelle fonction voulait vous tester? (Q pour arrêter, 1-10 pour choisir une fonction): ")
-    match choice:
-        case "1":
-            # Attrition is the rate of "is_churned" divided by the total of users
+def getFunction(option):
+    match option:
+        case "Churn":
             displayAttrition(dataset)
-        case "2":
+        case "Risk users":
             riskUsers(dataset)
-        case "3":
+        case "Revenue":
             getRevenusByCountry(dataset)
-        case "4":
+        case "Power users":
             powerUsers = getPowerUsers(dataset)
-            print(f"Power Users count : {len(powerUsers)}")
-        case "5":
+            return "Power Users count : " + str(len(powerUsers))
+        case "Ads average":
             adsPerSub(dataset)
-        case "6":
+        case "Device mix":
             deviceMix(dataset)
-        case "7":
+        case "Age brackets":
             ageBracket(dataset)
-        case "8":
+        case "Skip rate":
             histogramme(dataset)
-        case "9":
+        case "Specific user":
             displayUser(dataset)
-        case "10":
+        case "Unique values":
             checkUnique(dataset)
-        case "q" | "Q":
-            break
-        case _:
-            print("wrong input, try again or type 'Q' to abort")
+
+if __name__ == '__main__':
+    dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
+
+    while True:
+        choice = input("Quelle fonction voulait vous tester? (Q pour arrêter, 1-10 pour choisir une fonction): ")
+        match choice:
+            case "1":
+                # Attrition is the rate of "is_churned" divided by the total of users
+                displayAttrition(dataset)
+            case "2":
+                riskUsers(dataset)
+            case "3":
+                getRevenusByCountry(dataset)
+            case "4":
+                powerUsers = getPowerUsers(dataset)
+                print(f"Power Users count : {len(powerUsers)}")
+            case "5":
+                adsPerSub(dataset)
+            case "6":
+                deviceMix(dataset)
+            case "7":
+                ageBracket(dataset)
+            case "8":
+                histogramme(dataset)
+            case "9":
+                displayUser(dataset)
+            case "10":
+                checkUnique(dataset)
+            case "q" | "Q":
+                break
+            case _:
+                print("wrong input, try again or type 'Q' to abort")
 
 

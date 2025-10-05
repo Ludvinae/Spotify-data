@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from churned import displayAttrition
-from spotify import dataset
+from spotify import getFunction
 
 # this line have to be on top
 root = Tk()
@@ -12,7 +11,25 @@ def show():
     choice = functions.get()
     match choice:
         case "Churn":
-            display = displayAttrition(dataset)
+            display = getFunction("Churn")
+        case "Risk users":
+            display = getFunction("Risk users")
+        case "Revenue":
+            display = getFunction("Revenue")
+        case "Power users":
+            display = getFunction("Power users")
+        case "Ads average":
+            display = getFunction("Ads average")
+        case "Device mix":
+            display = getFunction("Device mix")
+        case "Age brackets":
+            display = getFunction("Age brackets")
+        case "Skip rate":
+            display = getFunction("Skip rate")
+        case "Specific user":
+            display = getFunction("Specific user")
+        case "Unique values":
+            display = getFunction("Unique values")
     result = Label(root, text=display).pack()
 
 def jobCard(option):
