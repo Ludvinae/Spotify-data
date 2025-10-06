@@ -1,6 +1,7 @@
 from tkinter import *
 import ttkbootstrap as ttk
 from spotify import getFunction
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 # this line have to be on top
 root = Tk()
@@ -27,6 +28,9 @@ def show():
             display = getFunction("Age brackets")
         case "Skip rate":
             display = getFunction("Skip rate")
+            canvas = FigureCanvasTkAgg(display, master=root)
+            canvas.draw()
+            canvas.get_tk_widget().pack()
         case "Specific user":
             display = getFunction("Specific user")
         case "Unique values":
@@ -72,6 +76,8 @@ card = Label(root, text="")
 #dropDown = ttk.Combobox(root, values=options)
 #dropDown.current(0)
 #dropDown.bind(functions, jobCard)
+
+
 
 myButton = Button(root, text="Run", command=show)
 result = Label(root, text="")

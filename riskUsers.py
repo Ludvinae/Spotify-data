@@ -73,7 +73,7 @@ def riskUsers(data):
     riskUsers = []
     count = 0
     #choice = input("What version do you want? (Conservative / Moderate / Large): ").lower()
-    choice = "m"
+    choice = "c"
 
     for user in data:
         if riskConditions(user, choice):

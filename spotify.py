@@ -6,6 +6,7 @@ from powerUsers import getPowerUsers
 from adsPerSubType import adsPerSub
 from deviceMix import deviceMix
 from ageBracket import ageBracket
+
 from histogramme import histogramme
 from user360 import displayUser
 from uniqueValues import checkUnique
@@ -45,7 +46,8 @@ def getFunction(option):
         case "Age brackets":
             return ageBracket(dataset)
         case "Skip rate":
-            histogramme(dataset)
+            return histogramme(dataset)
+            
         case "Specific user":
             return displayUser(dataset)
         case "Unique values":

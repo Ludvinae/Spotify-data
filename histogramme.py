@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+from matplotlib.figure import Figure
 
 
 
@@ -9,7 +9,7 @@ def histogramme(data):
         skipRate.append(float(user["skip_rate"]))
 
     #skipRate.sort()
-    showHistogram(skipRate)
+    return importHist(skipRate)
     
 
 def showHistogram(list):
@@ -18,4 +18,13 @@ def showHistogram(list):
     plt.ylabel("number of occurence")
 
     plt.show()
+
+
+def importHist(list):
+    fig = Figure(figsize=(5, 4), dpi=100)
+    ax = fig.add_subplot(111)
+    ax.hist(list, bins=12, edgecolor="black", rwidth=0.75, color="#B9C1E6")
+    ax.set_xlabel("skip rate value")
+    ax.set_ylabel("number of occurence")
+    return fig
 
