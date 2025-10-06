@@ -32,24 +32,24 @@ def getFunction(option):
         case "Churn":
             return getAttrition(dataset)
         case "Risk users":
-            riskUsers(dataset)
+            return riskUsers(dataset)
         case "Revenue":
-            getRevenusByCountry(dataset)
+            return getRevenusByCountry(dataset)
         case "Power users":
             powerUsers = getPowerUsers(dataset)
             return "Power Users count : " + str(len(powerUsers))
         case "Ads average":
-            adsPerSub(dataset)
+            return adsPerSub(dataset)
         case "Device mix":
-            deviceMix(dataset)
+            return deviceMix(dataset)
         case "Age brackets":
-            ageBracket(dataset)
+            return ageBracket(dataset)
         case "Skip rate":
             histogramme(dataset)
         case "Specific user":
-            displayUser(dataset)
+            return displayUser(dataset)
         case "Unique values":
-            checkUnique(dataset)
+            return checkUnique(dataset)
 
 if __name__ == '__main__':
     dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)

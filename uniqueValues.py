@@ -17,7 +17,10 @@ def checkUnique(data):
         countrySet.add(user["country"])
         subSet.add(user["subscription_type"])
 
-    print(deviceSet)
-    print(countrySet)
-    print(subSet)
+    return f"Unique devices: {getUnique(deviceSet)}\n Unique countries: {getUnique(countrySet)}\n Unique subscription types: {getUnique(subSet)}"
 
+def getUnique(set):
+    message = ""
+    for item in set:
+        message += item + " "
+    return message

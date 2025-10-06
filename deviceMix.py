@@ -6,7 +6,7 @@ countries = {}
 def deviceMix(data):
     for user in data:
         updateDict(user)
-    printDeviceMix()
+    return printDeviceMix()
     
 
 
@@ -26,20 +26,20 @@ def getDevice(user):
     return user["device_type"]
 
 def printDeviceMix():
+    message = ""
     for country in countries:
-
-        print(f"Most used device for {country}: ", end="")
+        message += f"Most used device for {country}: "
         device = getMax(country)
         match device:
             case "Mobile":
-                print(f"Mobile users ({getpercent(country, 'Mobile'):.2f} %)")
+                message += f"Mobile users ({getpercent(country, 'Mobile'):.2f} %)\n"
             case "Desktop":
-                print(f"Desktop users ({getpercent(country, 'Desktop'):.2f} %)")
+                message += f"Desktop users ({getpercent(country, 'Desktop'):.2f} %)\n"
             case "Web":
-                print(f"Web users ({getpercent(country, 'Web'):.2f} %)")
+                message += f"Web users ({getpercent(country, 'Web'):.2f} %)\n"
             case _:
-                "error"
-
+                message += "error\n"
+    return message
 
 
 def getpercent(country, device):
@@ -55,4 +55,4 @@ def getMax(country):
             max = countries[country][device]
             deviceMax = device
     
-    return device
+    return deviceMax

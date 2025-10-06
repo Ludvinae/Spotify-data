@@ -6,7 +6,7 @@ ages = {"Under 20": 0, "20-35": 0, "36-50": 0, "50+": 0}
 def ageBracket(data):
     for user in data:
         updateDict(user["age"])
-    displayCohorts()
+    return displayCohorts()
 
 
 def updateDict(age):
@@ -20,6 +20,7 @@ def updateDict(age):
         ages["50+"] += 1
 
 def displayCohorts():
+    message = ""
     for age in ages:    
-        
-        print(f"Number of user in the {age} bracket: {ages[age]}")
+        message += f"Number of user in the {age} bracket: {ages[age]}\n"
+    return message

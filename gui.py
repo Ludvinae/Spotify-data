@@ -1,11 +1,12 @@
 from tkinter import *
-from tkinter import ttk
+import ttkbootstrap as ttk
 from spotify import getFunction
 
 # this line have to be on top
 root = Tk()
 root.title("Spotify")
 root.geometry("800x600")
+style = ttk.Style("darkly")
 
 def show():
     choice = functions.get()

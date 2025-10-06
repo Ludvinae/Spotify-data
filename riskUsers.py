@@ -72,12 +72,12 @@ def riskConditions(user, choice):
 def riskUsers(data): 
     riskUsers = []
     count = 0
-    choice = input("What version do you want? (Conservative / Moderate / Large): ").lower()
+    #choice = input("What version do you want? (Conservative / Moderate / Large): ").lower()
+    choice = "m"
 
     for user in data:
         if riskConditions(user, choice):
             riskUsers.append(user)
             count += 1
 
-    print(f"Percentage of risk users in the sample: {(count / len(data)) * 100} %")
-    print(f"Total count of risk users: {len(riskUsers)}")
+    return f"Percentage of risk users in the sample: {(count / len(data)) * 100} %\nTotal count of risk users: {len(riskUsers)}"
