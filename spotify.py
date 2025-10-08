@@ -1,5 +1,5 @@
 import csv
-from churned import displayAttrition, getAttrition
+from churnedV2 import churned
 from riskUsers import riskUsers
 from revenus import getRevenusByCountry
 from powerUsers import getPowerUsers
@@ -30,7 +30,7 @@ dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
 def getFunction(option):
     match option:
         case "Churn":
-            return getAttrition(dataset)
+            return churned(dataset)
         case "Risk users":
             riskUsers(dataset)
         case "Revenue":
