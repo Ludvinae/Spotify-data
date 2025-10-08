@@ -61,7 +61,7 @@ if __name__ == '__main__':
         match choice:
             case "1":
                 # Attrition is the rate of "is_churned" divided by the total of users
-                displayAttrition(dataset)
+                churned(dataset)
             case "2":
                 riskUsers(dataset)
             case "3":
