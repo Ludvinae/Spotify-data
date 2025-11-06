@@ -10,13 +10,13 @@ def ageBracket(data):
 
 
 def updateDict(age):
-    if int(age) < 18:
+    if int(age) < 20:
         ages["Under 20"] += 1
-    elif int(age) < 26:
-        ages["20-35"] += 1
     elif int(age) < 36:
+        ages["20-35"] += 1
+    elif int(age) < 51:
         ages["36-50"] += 1
-    elif int(age) < 46:
+    else:
         ages["50+"] += 1
 
 def displayCohorts():
